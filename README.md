@@ -1,4 +1,4 @@
-### Memory-controlled-MultiHead-Self-Attention
+### MemoryControlled-MultiheadSelfAtt
 Memory controlled sequential self attention for sound recognition
 
 
