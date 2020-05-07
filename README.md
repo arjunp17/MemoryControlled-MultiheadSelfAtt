@@ -1,7 +1,7 @@
-# Memory-controlled-MultiHead-Self-Attention
+### Memory-controlled-MultiHead-Self-Attention
 Memory controlled sequential self attention for sound recognition
 
-# Self Attention Visualizations
+### Self Attention Visualizations
 
 >Figure 1
 ![fig1](Images/1a.png)
