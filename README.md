@@ -12,4 +12,4 @@ Memory controlled sequential self attention for sound recognition
 ![fig3](Images/6b.png)
 
 ![fig4](Images/11a.png)
-![fig4](Iages/11b.png)
+![fig4](Images/11b.png)
