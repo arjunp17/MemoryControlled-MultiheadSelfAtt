@@ -3,5 +3,5 @@ Memory controlled sequential self attention for sound recognition
 
 
 ![fig1](Images/1a.png)
-<img src="Images/1a.png" width="100%">
+<img src="Images/1a.png" height="50%">
 ![fig1](Images/1b.png)
