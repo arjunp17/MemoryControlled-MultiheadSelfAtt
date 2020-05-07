@@ -2,4 +2,5 @@
 Memory controlled sequential self attention for sound recognition
 
 
-![fig1a](Images/attn_vis_1.png)
+![](Images/1a.png)
+![](Images/1b.png)
