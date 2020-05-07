@@ -7,8 +7,9 @@ In each of the Figure below visualizes self attention plots are obtained using p
 
     /Input-MelSpec: pairwise cosine similarity of input mel-spectrogram feature
     /Baseline_RNN: pairwise cosine similarity of the GRU feature embeddings of the baseline model
-    /SelfAttn: pairwise cosine similarity of the self attention layer feature embeddings of the Self Attention model without memory control
-    /SelfAttn_L: pairwise cosine similarity of the memory controlled self attention layer feature embeddings of the Self Attention model with attention width = L
+    /SelfAttn: pairwise cosine similarity of the self attention feature embeddings of the model without memory control
+    /SelfAttn_L: pairwise cosine similarity of the memory controlled self attention feature embeddings of the model with attention width = L
+    /MultiHead_SelfAttn: pairwise cosine similarity of the memory controlled self attention feature embeddings of the multiHead model
 
 
 
