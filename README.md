@@ -3,11 +3,12 @@ Memory controlled sequential self attention for sound recognition
 
 ### Self Attention Visualizations
 
-In each of the Figure below self attention plots are obtained using pairwise cosine similarity of the Memory Controlled Self Attention feature embeddings.
+In each of the Figure below visualizes self attention plots are obtained using pairwise cosine similarity of the Memory Controlled Self Attention feature embeddings.
 
     /Input-MelSpec: pairwise cosine similarity of input mel-spectrogram feature
     /Baseline_RNN: pairwise cosine similarity of the GRU feature embeddings of the baseline model
-    /SelfAttn: pairwise cosine similarity of the self attention layer feature embeddings of the Self Attention model without memory control.
+    /SelfAttn: pairwise cosine similarity of the self attention layer feature embeddings of the Self Attention model without memory control
+    /SelfAttn_L: pairwise cosine similarity of the memory controlled self attention layer feature embeddings of the Self Attention model with attention width = L
 
 
 
