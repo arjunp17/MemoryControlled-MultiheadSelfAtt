@@ -9,7 +9,7 @@ In each of the Figure below visualizes self attention plots are obtained using p
     /Baseline_RNN: pairwise cosine similarity of the GRU feature embeddings of the baseline model
     /SelfAttn: pairwise cosine similarity of the self attention feature embeddings of the model without memory control
     /SelfAttn_L: pairwise cosine similarity of the memory controlled self attention feature embeddings of the model with attention width L
-    /MultiHead_SelfAttn: pairwise cosine similarity of the memory controlled self attention feature embeddings of the multiHead model
+    /MultiHead_SelfAttn: pairwise cosine similarity of the memory controlled self attention feature embeddings of the MultiHead model
 
 
 
