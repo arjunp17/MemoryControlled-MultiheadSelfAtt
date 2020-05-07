@@ -7,6 +7,11 @@ Figure 1
 ![fig1](Images/1a.png)
 ![fig1](Images/1b.png)
 
+<figure class="image">
+  <img src="{{ Images/1a.png}}" alt="{{ include.description }}">
+  <figcaption>{{ include.description }}</figcaption>
+</figure>
+
 Figure 2
 ![fig2](Images/4a.png)
 ![fig2](Images/4b.png)
