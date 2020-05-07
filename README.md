@@ -1,6 +1,7 @@
 ### Memory-controlled-MultiHead-Self-Attention
 Memory controlled sequential self attention for sound recognition
 
+
 ### Self Attention Visualizations
 
 Each of the Figure below visualizes self attention plots obtained using frame-level pairwise cosine similarity of the Memory Controlled Self Attention feature embeddings of different models.
@@ -28,3 +29,7 @@ Each of the Figure below visualizes self attention plots obtained using frame-le
 >Figure 4
 ![fig4](Images/11a.png)
 ![fig4](Images/11b.png)
+
+### Acknowledgement
+
+Memory controlled multi head self attention is developed using  [Keras Self-Attention](https://pypi.org/project/keras-self-attention/).
