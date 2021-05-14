@@ -75,7 +75,7 @@ def baselineSED(freq,time,channels,nb_classes,lr,attention_width,history_only):
 	#aggregation
 	sed_out = TimeDistributed(Dense(nb_classes, activation='sigmoid', kernel_initializer=init_weights(), name = 'sed_out'))(attn)
 	model = Model(input, sed_out, name='basemodelSED')	
-	opt = Adam(lr = lr, decay = decay)
+	opt = Adam(lr = lr)
 	model.compile(loss='binary_crossentropy', optimizer=opt, metrics=['accuracy'])	
 	model.summary()
 	return model
@@ -92,7 +92,7 @@ epochs = 200
 batch_size =  32
 nb_classes = 10
 lr = 0.001
-decay = 1e-6
+#decay = 1e-6
 attention_width = 50
 history_only = False
 
