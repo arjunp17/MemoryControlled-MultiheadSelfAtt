@@ -32,7 +32,7 @@ from keras.optimizers import Adadelta, RMSprop,SGD,Adam
 import keras
 from keras.layers import LSTM, SimpleRNN, GRU, TimeDistributed, Bidirectional
 from itertools import repeat
-from keras_self_attention import SeqSelfAttention
+from keras_self_attention import SeqSelfAttention ## To install SeqSelfAttention refer to - https://github.com/CyberZHG/keras-self-attention
 from keras.initializers import glorot_uniform
 
 
