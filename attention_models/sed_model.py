@@ -13,6 +13,7 @@ from keras.optimizers import Adadelta, RMSprop,SGD,Adam
 import keras
 from keras.layers import LSTM, SimpleRNN, GRU, TimeDistributed, Bidirectional
 from itertools import repeat
+from keras_self_attention import SeqSelfAttention
 
 
 # input dimensions  
