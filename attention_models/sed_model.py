@@ -71,7 +71,7 @@ def baselineSED(freq,time,channels,nb_classes,lr,attention_width,history_only):
 	#GRU
 	gru = GRU(64, activation='tanh', return_sequences=True, kernel_initializer=init_weights())(reshape1)	
 	#Memory Controlled Self Attention
-	attn = SeqSelfAttention(64, attention_type=SeqSelfAttention.ATTENTION_TYPE_ADD, attention_activation='sigmoid', attention_width=attention_width, history_only=history_only, name = 'self_attn')(gru)
+	attn = SeqSelfAttention(64, attention_width=attention_width, attention_type=SeqSelfAttention.ATTENTION_TYPE_ADD, history_only=history_only, attention_activation='sigmoid')(gru)
 	#aggregation
 	sed_out = TimeDistributed(Dense(nb_classes, activation='sigmoid', kernel_initializer=init_weights(), name = 'sed_out'))(attn)
 	model = Model(input, sed_out, name='basemodelSED')	
