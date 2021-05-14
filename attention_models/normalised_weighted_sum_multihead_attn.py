@@ -1,4 +1,11 @@
-class SeqSelfAttention(keras.layers.Layer):
+import keras
+from keras.layers import Layer
+from keras import backend as K
+
+
+# This code is adapted from the repo - https://github.com/CyberZHG/keras-self-attention
+
+class SeqSelfAttention(Layer):
     ATTENTION_TYPE_ADD = 'additive'
     ATTENTION_TYPE_MUL = 'multiplicative'
     def __init__(self,
@@ -139,7 +146,6 @@ class SeqSelfAttention(keras.layers.Layer):
         if self.attention_width_max is not None:
         	agg = []
         	context_values = K.arange(self.attention_width_min,self.attention_width_max,self.attention_step)
-        	print('context_values shape:', context_values.get_shape())
         	for i in range(context_values.shape[0]):
                     if self.history_only:
                         lower = K.arange(0, input_len) - (context_values[i] - 1)
@@ -157,26 +163,16 @@ class SeqSelfAttention(keras.layers.Layer):
                     a = e / (s + K.epsilon())
                     vv = K.batch_dot(a, inputs)
                     agg += [vv]
-                    print('vv shape:', vv.get_shape())
+                    print ('attention_width_value', context_values[i])
         agg1 = K.permute_dimensions(agg, (1,2,0,3))
-        print('agg1 shape:', agg1.get_shape())
         v = K.dot(agg1, self.CW)
-        print('v shape:', v.get_shape())
-        if self.use_context_bias:
-            v = v + self.Ca
         v = K.squeeze(v, axis=3)
-        print('v shape:', v.get_shape())
         context_values = K.cast(context_values, dtype='float32')
         agg2 = v[0,0,:,]/context_values
-        print('agg2 shape:', agg2.get_shape())
         agg3 = K.reshape(agg2, (context_values.shape[0],1))
-        print('agg3:', agg3.get_shape())
         agg4 = K.permute_dimensions(agg, (1,2,3,0))
-        print('agg4 shape:', agg4.get_shape())
         vvv = K.dot(agg4, agg3)
-        print('vvv shape:', vvv.get_shape())
         vvv = K.squeeze(vvv, axis=3)
-        print('vvv shape:', vvv.get_shape())
         if self.attention_regularizer_weight > 0.0:
             self.add_loss(self._attention_regularizer(a))
         if self.return_attention:
@@ -187,21 +183,15 @@ class SeqSelfAttention(keras.layers.Layer):
         print('inputs shape:', inputs.get_shape())
         batch_size, input_len = input_shape[0], input_shape[1]
         q = K.expand_dims(K.dot(inputs, self.Wt), 2)
-        print('q shape:', q.get_shape())
         k = K.expand_dims(K.dot(inputs, self.Wx), 1)
-        print('k shape:', k.get_shape())
         if self.use_additive_bias:
             h = K.tanh(q + k + self.bh)
-            print('h shape:', h.get_shape())
         else:
             h = K.tanh(q + k)
-            print('h shape:', h.get_shape())
         if self.use_attention_bias:
             e = K.reshape(K.dot(h, self.Wa) + self.ba, (batch_size, input_len, input_len))
-            print('e shape:', e.get_shape())
         else:
             e = K.reshape(K.dot(h, self.Wa), (batch_size, input_len, input_len))
-            print('e shape:', e.get_shape())
         return e
     def _call_multiplicative_emission(self, inputs):
         e = K.batch_dot(K.dot(inputs, self.Wa), K.permute_dimensions(inputs, (0, 2, 1)))
@@ -229,8 +219,4 @@ class SeqSelfAttention(keras.layers.Layer):
             K.permute_dimensions(attention, (0, 2, 1))) - eye)) / batch_size
     def get_custom_objects():
         return {'SeqSelfAttention': SeqSelfAttention}
-        
-        
-        
-        
         
